@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:project/pages/home_page.dart';
+import 'package:project/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,28 +15,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: GoogleFonts.lato().fontFamily,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+
+      // ignore: prefer_const_constructors
+      routes: {
+        // ignore: prefer_const_constructors
+        '/': (context) => LoginPage(),
+        // ignore: prefer_const_constructors
+        '/home': (context) => HomePage(),
+
+        // ignore: prefer_const_constructors
+        '/login': (context) => LoginPage(),
+      },
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return HomePage();
   }
 }
